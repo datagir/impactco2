@@ -76,6 +76,9 @@
     "kitTitle": "Kit de communication",
     "kitDescription": "Tout ce qu’il faut pour communiquer sur Impact CO₂",
     "kitLink": "Consulter",
+    "livraisonKitTitle": "Kit de com’ pour Impact Livraison",
+    "livraisonKitDescription": "Afin de vous faciliter la tâche, nous avons concocté des visuels prêts à l’emploi pour communiquer autour d’Impact Livraison",
+    "livraisonKitLink": "Télécharger",
     "integrate": "Intégrer",
     "preview": "Aperçu de l'integration",
     "next-actions": "Aller plus loin",
@@ -94,11 +97,20 @@
       "rayon": "Rayons du magasin",
       "popularity": "Top 10"
     },
+    "withFabrication": {
+      "title": "Inclure l’impact de la fabrication par défaut",
+      "description": "Impact de la fabrication"
+    },
+    "customFabricationList": {
+      "description": "Personnaliser la liste d'objets proposés"
+    },
     "customList": {
-      "title": "Créer une liste d’aliments personnalisée"
+      "title": "Créer une liste d’aliments personnalisée",
+      "description": "Liste personnalisée"
     },
     "hideButtons": {
-      "title": "Afficher les boutons en bas de mon intégration"
+      "title": "Afficher les boutons en bas de mon intégration",
+      "description": "Affichage des boutons"
     },
     "m2": {
       "title": "Afficher une surface personnalisée",
@@ -234,9 +246,16 @@
   "category-simulator": {
     "passenger": "passager[s]",
     "in": "dans le",
+    "distance": "Distance parcourue pour",
+    "voiturethermique": "Voiture thermique",
+    "voitureelectrique": "Voiture électrique",
+    "transportSelect": "Transport utilisé pour aller chercher l'objet",
     "legend": {
       "construction": "Construction",
-      "usage": "Usage"
+      "usage": "Usage",
+      "logistique": "Logistique / Livraison",
+      "deplacement": "Mon déplacement",
+      "fabrication": "Fabrication"
     },
     "vetement": {
       "display": "Voir tous les vêtements",
@@ -278,38 +297,21 @@
     }
   },
   "livraison": {
-    "produit": "Vous commandez...",
-    "grande consommation": "Produits de grande consommation (aliments, épicerie, boissons…)",
-    "habillement": "Habillement (vêtements, chaussures, accessoires…)",
-    "culturel": "Produits culturels (CD, livres, DVD…)",
-    "équipements volumineux": "Mobilier et gros électroménager",
-    "retrait": "Que vous faites livrer en...",
-    "domicile": "Livraison à domicile",
-    "point de retrait": "Point relais",
-    "click and collect": "Click & collect",
-    "point-de-retrait": "Le point relais",
-    "click-and-collect": "Le click & collect",
-    "trajet": "est t'il sur votre trajet habituel ?",
-    "yes": "Oui",
-    "plane": "Le colis vient de loin",
-    "yes-plane": "Oui (transport par avion)",
-    "no": "Non",
-    "km": "Pour aller au point relais, vous parcourez...",
-    "voiture thermique": "En voiture",
-    "voiture électrique": "En voiture électrique",
-    "marche": "Marche",
-    "vélo": "à vélo",
-    "petit véhicule électrique": "à vélo électrique",
-    "commun": "En transport en commun",
-    "generate": "LA LIVRAISON DE VOTRE COLIS GÉNÈRE",
-    "total": "CE QUI CORRESPOND À..",
-    "mean": "En moyenne, vous passez ce type de commande...",
-    "mean-unit": "fois",
-    "1": "Par an",
-    "12": "Par mois",
-    "52": "Par semaine",
-    "habits": "VOS HABITUDES DE LIVRAISON GÉNÈRENT",
-    "year": "Par année"
+    "title": "Choisir un objet pour découvrir l’impact carbone des différents modes d’achat",
+    "courses": "Courses alimentaires",
+    "chaussure": "Paire de chaussures",
+    "livre": "Livres",
+    "microondes": "Micro-ondes",
+    "vetements": "Commande de vêtements",
+    "lavelinge": "Lave-linge",
+    "lit": "Lit complet",
+    "smartphone": "Smartphone",
+    "vin": "Caisse de vin",
+    "cafetiere": "Cafetière espresso",
+    "fabrication": "Inclure l’impact de la fabrication de l’objet",
+    "car": "J'y vais en voiture",
+    "foot": "J'y vais à pied",
+    "etiquette": "Quelle est <important>l'impact carbone</important> des différents modes d'achat ?"
   },
   "usage-numerique": {
     "title": "Comparer l’impact des usages avec l’impact de la construction",
@@ -482,7 +484,12 @@
       "50": "Consommation d'énergie",
       "51": "Services d'entretien",
       "52": "Déplacement du personnel",
-      "53": "Construction des infrastructures"
+      "53": "Construction des infrastructures",
+      "54": "Commande & Préparation",
+      "55": "Stockage & Transit",
+      "56": "Mon déplacement à 3km A/R",
+      "57": "Mon déplacement à 7km A/R",
+      "58": "Mon déplacement à 30km A/R"
     }
   },
   "category": {
@@ -563,10 +570,6 @@
     "boulangerie": "Boulangerie",
     "epiceriesalee": "Épicerie salée",
     "epiceriesucree": "Épicerie sucrée",
-    "select": "tout sélectionner",
-    "integrate": {
-      "customList": "Liste personnalisée",
-      "hideButtons": "Affichage des boutons"
-    }
+    "select": "tout sélectionner"
   }
 }
