@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import useParamContext from 'src/providers/ParamProvider'
 import { Category } from 'types/category'
 import ClipboardBox from 'components/base/ClipboardBox'
@@ -16,11 +16,13 @@ const Integrate = ({
   path,
   extraParams,
   tracking,
+  noLanguage,
 }: {
   path: string
   category?: Category
   extraParams?: string
   tracking: string
+  noLanguage?: boolean
 }) => {
   const allParams = useParamContext()
   const [visibility, setVisibility] = useState<Record<string, boolean> | null>(null)
@@ -110,7 +112,7 @@ const Integrate = ({
     }
   }, [params])
 
-  const urlParams = `${buildCustomParamsUrl(params, visibility)}${extraParams ? `&${extraParams}` : ''}&language=${language}&theme=${theme}`
+  const urlParams = `${buildCustomParamsUrl(params, visibility)}${extraParams ? `&${extraParams}` : ''}${noLanguage ? '' : `&language=${language}`}&theme=${theme}`
 
   return params && visibility ? (
     <>
@@ -130,12 +132,14 @@ const Integrate = ({
           param={{ value: theme, setter: setTheme } as CustomParamValue}
           visible
         />
-        <CustomParam
-          tracking={tracking}
-          slug='language'
-          param={{ value: language, setter: setLanguage } as CustomParamValue}
-          visible
-        />
+        {!noLanguage && (
+          <CustomParam
+            tracking={tracking}
+            slug='language'
+            param={{ value: language, setter: setLanguage } as CustomParamValue}
+            visible
+          />
+        )}
       </form>
       <ClipboardBox form={`${category?.slug}-integrate`} tracking={tracking}>{`<script name="impact-co2" src="${
         process.env.NEXT_PUBLIC_URL

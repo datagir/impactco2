@@ -92,6 +92,16 @@ export const overScreenEquivalentImageInfographyValues: (
       />
     ),
   },
+  integrer: {
+    title: 'integrate',
+    children: (
+      <Integrate
+        noLanguage
+        path={`/image-infographie/${equivalent.slug}/${index}`}
+        tracking={`${getName('fr', equivalent)} image infographie ${index}`}
+      />
+    ),
+  },
 })
 
 export const overScreenEquivalentValues: (equivalent: ComputedEquivalent) => Record<string, OverScreenInfo> = (
