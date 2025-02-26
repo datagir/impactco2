@@ -265,7 +265,7 @@ const FRChauffageData = () => {
             </div>
             <b aria-level={2}>{getName(language, { slug, category: 8 })}</b>
           </div>
-          <ul>
+          <ul className={styles.list}>
             {values.map((value, index) => (
               <li
                 className={classNames(styles.values, { [styles.border]: index !== values.length - 1 })}
@@ -327,7 +327,7 @@ const ESChauffageData = () => {
             </div>
             <b aria-level={2}>{getName(language, { slug, category: 8 })}</b>
           </div>
-          <ul>
+          <ul className={styles.list}>
             {values.map((value, index) => (
               <li
                 className={classNames(styles.values, { [styles.border]: index !== values.length - 1 })}
@@ -387,7 +387,7 @@ const ENChauffageData = () => {
             </div>
             <b aria-level={2}>{getName(language, { slug, category: 8 })}</b>
           </div>
-          <ul>
+          <ul className={styles.list}>
             {values.map((value, index) => (
               <li
                 className={classNames(styles.values, { [styles.border]: index !== values.length - 1 })}

@@ -60,15 +60,24 @@
   gap: 1.5rem;
   color: var(--neutral-50);
   margin-bottom: 2rem;
+}
 
-  ul {
-    list-style: outside;
-    margin-left: 1.5rem;
+.list {
+  list-style: disc;
+  list-style-position: outside;
+  margin-left: 1.5rem;
 
-    li {
-      &:not(:first-child) {
-        margin-top: 0.25rem;
-      }
+  li {
+    &:not(:first-child) {
+      margin-top: 0.25rem;
     }
+  }
+}
+
+.dropdown {
+  h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.75rem;
   }
 }

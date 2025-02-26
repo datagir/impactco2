@@ -40,7 +40,9 @@
     "name": "Cafetière[s]",
     "id": 28304,
     "subtitle": "À dosettes",
-    "synonyms": ["nespresso"],
+    "synonyms": [
+      "nespresso"
+    ],
     "slug": "cafetieredosette",
     "category": 6,
     "ecv": [
@@ -117,7 +119,9 @@
     "name": "Cafetière[s]",
     "id": 28305,
     "subtitle": "Expresso",
-    "synonyms": ["espresso"],
+    "synonyms": [
+      "espresso"
+    ],
     "slug": "cafetiereexpresso",
     "category": 6,
     "ecv": [
@@ -337,7 +341,9 @@
   {
     "name": "Climatiseur[s]",
     "id": 28325,
-    "synonyms": ["climatisation"],
+    "synonyms": [
+      "climatisation"
+    ],
     "slug": "climatiseur",
     "category": 6,
     "ecv": [
@@ -371,5 +377,30 @@
     },
     "source": "https://librairie.ademe.fr/dechets-economie-circulaire/127-modelisation-et-evaluation-environnementale-de-produits-de-consommation-et-biens-d-equipement.html",
     "total": 239
+  },
+  {
+    "name": "Micro-ondes",
+    "id": 26989,
+    "slug": "microondes",
+    "category": 6,
+    "ecv": [
+      {
+        "id": 1,
+        "value": 58.6
+      },
+      {
+        "id": 2,
+        "value": 3.43
+      },
+      {
+        "id": 3,
+        "value": 6.91
+      },
+      {
+        "id": 4,
+        "value": 29.4
+      }
+    ],
+    "total": 98.4
   }
 ]

@@ -5,8 +5,8 @@
     "displayAll": "Afficher tous les ordres de grandeur",
     "question": "Question",
     "previous": "Prec.",
-    "title": "D’après vous, qu’est-ce qui a <important>le moins</important> d’impact sur le climat ?",
-    "tag": "Choisissez votre réponse ci dessous :",
+    "title": "D’après vous, qu’est-ce qui a <important>le moins</important> d’impact sur le climat ?",
+    "tag": "Choisissez votre réponse ci dessous :",
     "ou": "ou",
     "correct": "<important>Bien joué !</important> C’est exactement ça !",
     "missed": "<important>Raté...</important> C’était la réponse",
@@ -76,6 +76,9 @@
     "kitTitle": "Kit de communication",
     "kitDescription": "Tout ce qu’il faut pour communiquer sur Impact CO₂",
     "kitLink": "Consulter",
+    "livraisonKitTitle": "Kit de com’ pour Impact Livraison",
+    "livraisonKitDescription": "Afin de vous faciliter la tâche, nous avons concocté des visuels prêts à l’emploi pour communiquer autour d’Impact Livraison",
+    "livraisonKitLink": "Télécharger",
     "integrate": "Intégrer",
     "preview": "Aperçu de l'integration",
     "next-actions": "Aller plus loin",
@@ -94,11 +97,20 @@
       "rayon": "Rayons du magasin",
       "popularity": "Top 10"
     },
+    "withFabrication": {
+      "title": "Inclure l’impact de la fabrication par défaut",
+      "description": "Impact de la fabrication"
+    },
+    "customFabricationList": {
+      "description": "Personnaliser la liste d'objets proposés"
+    },
     "customList": {
-      "title": "Créer une liste d’aliments personnalisée"
+      "title": "Créer une liste d’aliments personnalisée",
+      "description": "Liste personnalisée"
     },
     "hideButtons": {
-      "title": "Afficher les boutons en bas de mon intégration"
+      "title": "Afficher les boutons en bas de mon intégration",
+      "description": "Affichage des boutons"
     },
     "m2": {
       "title": "Afficher une surface personnalisée",
@@ -221,7 +233,7 @@
       "teletravail": "Télétravail",
       "list": "Liste",
       "comparison": "Comparaison",
-      "comparisonMode": "Mode d'affichage :"
+      "comparisonMode": "Mode d'affichage :"
     }
   },
   "chauffage": {
@@ -234,9 +246,16 @@
   "category-simulator": {
     "passenger": "passager[s]",
     "in": "dans le",
+    "distance": "Distance parcourue pour",
+    "voiturethermique": "Voiture thermique",
+    "voitureelectrique": "Voiture électrique",
+    "transportSelect": "Transport utilisé pour aller chercher l'objet",
     "legend": {
       "construction": "Construction",
-      "usage": "Usage"
+      "usage": "Usage",
+      "logistique": "Logistique / Livraison",
+      "deplacement": "Mon déplacement",
+      "fabrication": "Fabrication"
     },
     "vetement": {
       "display": "Voir tous les vêtements",
@@ -278,38 +297,31 @@
     }
   },
   "livraison": {
-    "produit": "Vous commandez...",
-    "grande consommation": "Produits de grande consommation (aliments, épicerie, boissons…)",
-    "habillement": "Habillement (vêtements, chaussures, accessoires…)",
-    "culturel": "Produits culturels (CD, livres, DVD…)",
-    "équipements volumineux": "Mobilier et gros électroménager",
-    "retrait": "Que vous faites livrer en...",
-    "domicile": "Livraison à domicile",
-    "point de retrait": "Point relais",
-    "click and collect": "Click & collect",
-    "point-de-retrait": "Le point relais",
-    "click-and-collect": "Le click & collect",
-    "trajet": "est t'il sur votre trajet habituel ?",
-    "yes": "Oui",
-    "plane": "Le colis vient de loin",
-    "yes-plane": "Oui (transport par avion)",
-    "no": "Non",
-    "km": "Pour aller au point relais, vous parcourez...",
-    "voiture thermique": "En voiture",
-    "voiture électrique": "En voiture électrique",
-    "marche": "Marche",
-    "vélo": "à vélo",
-    "petit véhicule électrique": "à vélo électrique",
-    "commun": "En transport en commun",
-    "generate": "LA LIVRAISON DE VOTRE COLIS GÉNÈRE",
-    "total": "CE QUI CORRESPOND À..",
-    "mean": "En moyenne, vous passez ce type de commande...",
-    "mean-unit": "fois",
-    "1": "Par an",
-    "12": "Par mois",
-    "52": "Par semaine",
-    "habits": "VOS HABITUDES DE LIVRAISON GÉNÈRENT",
-    "year": "Par année"
+    "title": "Choisir un objet pour découvrir l’impact carbone des différents modes d’achat",
+    "courses": "Courses alimentaires",
+    "chaussure": "Paire de chaussures",
+    "livre": "Livres",
+    "microondes": "Micro-ondes",
+    "vetements": "Commande de vêtements",
+    "lavelinge": "Lave-linge",
+    "lit": "Lit complet",
+    "smartphone": "Smartphone",
+    "vin": "Caisse de vin",
+    "cafetiere": "Cafetière espresso",
+    "fabrication": "Inclure l’impact de la fabrication de l’objet",
+    "car": "J'y vais en voiture",
+    "foot": "J'y vais à pied",
+    "etiquette": "Quelle est <important>l'impact carbone</important> des différents modes d'achat ?",
+    "extranames": {
+      "clickcollect": " à 30km",
+      "pointrelais": " à 7km",
+      "magasin": " à 30km"
+    },
+    "data": {
+      "open": "Déplier",
+      "close": "Replier",
+      "optionnel": "optionnel"
+    }
   },
   "usage-numerique": {
     "title": "Comparer l’impact des usages avec l’impact de la construction",
@@ -349,7 +361,7 @@
   },
   "osez-changer": {
     "title": "Comptez vos chaussures !",
-    "description": "En moyenne, les Français n’utilisent qu’un tiers des chaussures qu’ils possèdent. Et si on désencombrait les placards ?",
+    "description": "En moyenne, les Français n’utilisent qu’un tiers des chaussures qu’ils possèdent. Et si on désencombrait les placards ?",
     "paire": "paire[s]",
     "new-paire": "paire[s] de chaussures neuves",
     "avis": "À votre avis...",
@@ -362,9 +374,9 @@
     "waiting": "Une réponse à la question ci-dessus permet d’afficher l’impact carbone de l’achat de chaussures neuves"
   },
   "equivalent": {
-    "detail": "Détail de l'impact carbone pour :",
+    "detail": "Détail de l'impact carbone pour :",
     "year": "année[s]",
-    "hypotheses": "Hypothèses : ",
+    "hypotheses": "Hypothèses : ",
     "fabrication": "Fabrication",
     "usage": "Usage",
     "fdv": "Fin de vie",
@@ -375,13 +387,13 @@
     "Approvisionnement": "Approvisionnement",
     "hypothesis": {
       "pre": {
-        "avion-pny": "Distance totale parcourue : 11600 km.",
-        "tgv-paris-berlin": "Distance totale parcourue : 2478 km.",
-        "tgv-paris-marseille": "Distance totale parcourue : 1504 km.",
-        "voiture-lille-nimes": "Distance totale parcourue : 1882 km.",
+        "avion-pny": "Distance totale parcourue : 11600 km.",
+        "tgv-paris-berlin": "Distance totale parcourue : 2478 km.",
+        "tgv-paris-marseille": "Distance totale parcourue : 1504 km.",
+        "voiture-lille-nimes": "Distance totale parcourue : 1882 km.",
         "ski": "Valeur moyenne. Étude réalisée pour une journée de ski à La Clusaz, le Grand Bornand et Tignes.",
         "piscine": "Dimension moyenne d’une piscine d’un particulier 8 x 4m avec une profondeur allant d'1,50 mètre à 2,10 mètres.",
-        "terre-voiture": "Distance totale parcourue : 40 000 km",
+        "terre-voiture": "Distance totale parcourue : 40 000 km",
         "harry-potter": "L’ensemble des films d’Harry Potter durent en moyenne 1176 minutes = 19,6 heures. La donnée est calculé sur une heure de streaming en haute définition, sur une télévision, en connexion wifi.",
         "avion-courtcourrier": "Taux de remplissage moyen 101-220 passagers",
         "avion-moyencourrier": "Taux de remplissage moyen 101-220 passagers",
@@ -405,21 +417,28 @@
         "porc": "Moyenne des facteurs d’émission de la côte de porc, échine de porc, poitrine de porc, épaule de porc",
         "dorade": "Moyenne des facteurs d’émission de la dorade royale d’élevage et la dorade royale sauvage",
         "beurre": "Moyenne des facteurs d’émission du beurre doux et beurre salé",
-        "fromagedure": "Moyenne des facteurs d’émission des différents fromages à pâte dure : Emmental, gruyère, comté, gouda etc.",
-        "fromagemolle": "Moyenne des facteurs d’émission de différents fromages à pâte molle : Camembert, brie, maroilles, mont-d’or etc.",
-        "fromagebleu": "Moyenne des facteurs d’émission des différents fromages à pâte persillées : Roquefort, bleu d’Auvergne, gorgonzola etc.",
-        "riz": "Moyenne des facteurs d’émission des différents riz : Riz blanc, complet, rouge; sauvage",
-        "ble": "Moyenne des facteurs d’émission des différents blés : Blé dur entier, blé précuit, semoule de blé, blé tendre",
+        "fromagedure": "Moyenne des facteurs d’émission des différents fromages à pâte dure : Emmental, gruyère, comté, gouda etc.",
+        "fromagemolle": "Moyenne des facteurs d’émission de différents fromages à pâte molle : Camembert, brie, maroilles, mont-d’or etc.",
+        "fromagebleu": "Moyenne des facteurs d’émission des différents fromages à pâte persillées : Roquefort, bleu d’Auvergne, gorgonzola etc.",
+        "riz": "Moyenne des facteurs d’émission des différents riz : Riz blanc, complet, rouge; sauvage",
+        "ble": "Moyenne des facteurs d’émission des différents blés : Blé dur entier, blé précuit, semoule de blé, blé tendre",
         "hotel": "Sont inclus les émissions liées à la consommation d’énergie (chauffage, électricité, climatisation, eau chaude), aux services d’entretien (nettoyage, blanchisserie), aux infrastructures (construction, maintenance), au déplacement domicile-travail du personnel.",
         "camping": "Sont inclus la construction et la consommation énergétique des infrastructures (les douches, sanitaires et l’éclairage).",
         "location": "Sont inclus les émissions liées à la consommation énergétique (chauffage, électricité, eau chaude), aux infrastructures (construction) et au services d’entretien.",
         "residencesecondaire": "Sont inclus les émissions liées à la consommation énergétique (chauffage, électricité, eau chaude), aux infrastructures (construction) et services d’entretien.",
-        "2050": "Un Français émet en moyenne près de 9,3 tonnes de CO2 par an. Pour limiter le dérèglement climatique, il est essentiel de réduire ces émissions et d'atteindre un objectif maximum de 2 tonnes de CO2e par personne par an d'ici 2050."
+        "2050": "Un Français émet en moyenne près de 9,3 tonnes de CO2 par an. Pour limiter le dérèglement climatique, il est essentiel de réduire ces émissions et d'atteindre un objectif maximum de 2 tonnes de CO2e par personne par an d'ici 2050.",
+        "magasin": "Pour un colis d'un kilo.",
+        "magasindouce": "Pour un colis d'un kilo.",
+        "pointrelais": "Pour un colis d'un kilo.",
+        "pointrelaisdouce": "Pour un colis d'un kilo.",
+        "clickcollect": "Pour un colis d'un kilo.",
+        "clickcollectdouce": "Pour un colis d'un kilo.",
+        "livraisondomicile": "Pour un colis d'un kilo."
       },
       "post": {
-        "ski": "Inclus : l’impact carbone du transport (52%), du logement (4%), de l’alimentation (8%), du domaine skiable (3%), des infrastructures, équipements et services du domaine (17%), et de l’équipement (16%).",
+        "ski": "Inclus : l’impact carbone du transport (52%), du logement (4%), de l’alimentation (8%), du domaine skiable (3%), des infrastructures, équipements et services du domaine (17%), et de l’équipement (16%).",
         "piscine": "58 000 litres d’eau du robinet pour la remplir",
-        "terre-voiture": "Inclus : l’impact carbone d’un déplacement en voiture thermique",
+        "terre-voiture": "Inclus : l’impact carbone d’un déplacement en voiture thermique",
         "avion-courtcourrier": "par personne en France. Nous prenons ici en compte l’impact carbone des trainées de condensation. Sont incluses les émissions directes, la construction des véhicules (fabrication, maintenance et fin de vie) et la production et distribution de carburant et d'électricité. La construction des infrastructures (routes, rails, aéroports...) n'est pas incluse.",
         "avion-moyencourrier": "par personne en France. Nous prenons ici en compte l’impact carbone des trainées de condensation. Sont incluses les émissions directes, la construction des véhicules (fabrication, maintenance et fin de vie) et la production et distribution de carburant et d'électricité. La construction des infrastructures (routes, rails, aéroports...) n'est pas incluse.",
         "avion-longcourrier": "par personne en France. Nous prenons ici en compte l’impact carbone des trainées de condensation. Sont incluses les émissions directes, la construction des véhicules (fabrication, maintenance et fin de vie) et la production et distribution de carburant et d'électricité. La construction des infrastructures (routes, rails, aéroports...) n'est pas incluse.",
@@ -436,7 +455,7 @@
       "appareil": "Appareil",
       "used": "utilisé",
       "take": "Prendre en compte",
-      "construction": "la construction ?",
+      "construction": "la construction ?",
       "yes": "Oui",
       "no": "Non",
       "email-mainTitle": "Durée de la rédaction",
@@ -482,7 +501,11 @@
       "50": "Consommation d'énergie",
       "51": "Services d'entretien",
       "52": "Déplacement du personnel",
-      "53": "Construction des infrastructures"
+      "53": "Construction des infrastructures",
+      "54": "Commande & Préparation",
+      "55": "Stockage & Transit",
+      "56": "Mon déplacement à 7km A/R",
+      "57": "Mon déplacement à 30km A/R"
     }
   },
   "category": {
@@ -516,7 +539,7 @@
     "requete": "requête"
   },
   "ressources": {
-    "fast-fashion": "Tout comprendre : les impacts de la mode et de la fast-fashion",
+    "fast-fashion": "Tout comprendre : les impacts de la mode et de la fast-fashion",
     "tri": "Faire le tri dans ses placards pour gagner de la place chez soi",
     "questions": "Se poser les bonnes questions avant d’acheter : en ai-je vraiment besoin ?",
     "deuxieme-vie": "Donner une seconde vie aux vêtements et chaussures non utilisées",
@@ -525,17 +548,18 @@
     "wattris": "Simuler la consommation électrique de son logement",
     "ngc": "Estimer son empreinte carbone de consommation",
     "lvao": "Prolonger la vie de ses objets",
-    "agir-tt": "Le télétravail, ça change quoi pour la planète ?",
-    "agir-alimentation": "Tout comprendre : une alimentation plus durable",
+    "agir-tt": "Le télétravail, ça change quoi pour la planète ?",
+    "agir-alimentation": "Tout comprendre : une alimentation plus durable",
     "calendar": "Calendrier des fruits et légumes de saison",
     "livraison": "Télécharger le guide “E-consommateur & responsable”",
-    "leger": "Comment télétravailler léger ?",
+    "leger": "Comment télétravailler léger ?",
     "ecoresponsable": "Écoresponsable au bureau",
     "ico2-transport": "Calculer l'impact carbone de vos trajets",
     "ico2-fruitsetlegumes": "Découvrir les fruits et légumes de saison et leur impact",
     "ico2-repas": "Comparer l'impact carbone des repas",
     "ico2-fiches-alimentation": "Télécharger les fiches d’Impact Alimentation",
-    "fiches": "Télécharger les fiches du quizz à imprimer"
+    "fiches": "Télécharger les fiches du quizz à imprimer",
+    "commerce": "Voir l’impact environnemental du commerce en ligne"
   },
   "alimentation": {
     "title": "Découvrir <important>l’impact carbone pour 1 kg d'aliments</important> présentés par...",
@@ -563,10 +587,6 @@
     "boulangerie": "Boulangerie",
     "epiceriesalee": "Épicerie salée",
     "epiceriesucree": "Épicerie sucrée",
-    "select": "tout sélectionner",
-    "integrate": {
-      "customList": "Liste personnalisée",
-      "hideButtons": "Affichage des boutons"
-    }
+    "select": "tout sélectionner"
   }
 }

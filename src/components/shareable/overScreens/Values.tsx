@@ -9,6 +9,7 @@ import EquivalentsOverscreen from 'components/comparateur/overscreens/Equivalent
 import AlimentationIntegrate from './AlimentationIntegrate'
 import AlimentationData from './Data/AlimentationData'
 import Integrate from './Integrate'
+import LivraisonIntegrate from './LivraisonIntegrate'
 import Share from './Share'
 import TransportIntegrate from './TransportIntegrate'
 import TransportShare from './TransportShare'
@@ -128,25 +129,35 @@ export const overScreenComparateurValues = {
   },
 }
 
+export const overScreenLivraisonEtiquettesValues: () => Record<
+  'animated' | 'static',
+  Record<string, OverScreenInfo>
+> = () => ({
+  animated: {
+    integrer: {
+      title: 'integrate',
+      children: <Integrate path='livraison/etiquette-animee' tracking='Livraison' />,
+    },
+  },
+  static: {
+    integrer: {
+      title: 'integrate',
+      children: <Integrate path='livraison/etiquette' tracking='Livraison' />,
+    },
+  },
+})
+
 export const overScreenComparateurEtiquettesValues: () => Record<
   'animated' | 'static',
   Record<string, OverScreenInfo>
 > = () => ({
   animated: {
-    partager: {
-      title: 'share',
-      children: <Share path='outils/comparateur/etiquette-animee' tracking='Comparateur' />,
-    },
     integrer: {
       title: 'integrate',
       children: <Integrate path='comparateur/etiquette-animee' tracking='Comparateur' />,
     },
   },
   static: {
-    partager: {
-      title: 'share',
-      children: <Share path='outils/comparateur/etiquette' tracking='Comparateur' />,
-    },
     integrer: {
       title: 'integrate',
       children: <Integrate path='comparateur/etiquette' tracking='Comparateur' />,
@@ -434,7 +445,14 @@ export const overScreenCategoryValues: (category: Category) => Record<string, Ov
   }
   if (category.slug === 'livraison') {
     return {
-      ...values,
+      integrer: {
+        title: 'integrate',
+        children: <LivraisonIntegrate />,
+      },
+      partager: {
+        title: 'share',
+        children: <Share category={category} tracking={category.name} extraKit='livraison' />,
+      },
       hypothesis: {
         image: '/images/icn-next-actions.svg',
         title: 'next-actions',
@@ -448,12 +466,26 @@ export const overScreenCategoryValues: (category: Category) => Record<string, Ov
               tracking='Livraison'
             />
             <Resource
+              image='/images/tools-transport.svg'
+              text='ico2-transport'
+              href='https://impactco2.fr/outils/transport'
+              withLink='Impact Transport'
+              tracking='Livraison'
+            />
+            <Resource
               image='/images/ngc.png'
               text='ngc'
               href='https://nosgestesclimat.fr/'
               withLink='Nos Gestes Climat'
               tracking='Livraison'
               imgSize='4.5rem'
+            />
+            <Resource
+              image='/images/commerce.png'
+              text='commerce'
+              href='https://infos.ademe.fr/article-magazine/limpact-environnemental-du-commerce-en-ligne/'
+              withLink='Infographie ADEME'
+              tracking='Livraison'
             />
           </div>
         ),

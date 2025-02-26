@@ -1,261 +1,179 @@
-import React from 'react'
 import useParamContext from 'src/providers/ParamProvider'
-import NewTabIcon from 'components/base/NewTabIcon'
+import { LivraisonType } from 'components/outils/livraison/Type'
+import Dropdown from 'components/base/Dropdown'
 import Link from 'components/base/buttons/Link'
 import styles from './Data.module.css'
+import LivraisonEquivalents from './LivraisonEquivalents'
 
 const FRLivraisonData = () => {
   return (
     <>
       <div className={styles.content}>
         <p>
-          <Link href='https://librairie.ademe.fr/mobilite-et-transport/6261-e-commerce-modelisation-des-impacts-et-recommandations-filieres-et-grand-public.html'>
-            L’étude Commerce en ligne - 2023
-          </Link>{' '}
-          à destination des professionels du E-commerce. L'outil ECEL à l'origine des calculs de cette étude a été
-          adapté au contexte des particuliers sous forme de simulateur.
+          Nos calculs et hypothèses s’appuient sur les données{' '}
+          <Link href='https://infos.ademe.fr/article-magazine/limpact-environnemental-du-commerce-en-ligne'>
+            de l’étude de l’ADEME sur les impacts environnementaux du commerce en ligne
+          </Link>
+          . Nous utilisons les facteurs d’émission issus de la{' '}
+          <Link href='https://base-empreinte.ademe.fr/donnees/jeu-donnees'>Base Empreinte</Link> dans nos analyses.
         </p>
       </div>
-      <h2 className={styles.title}>Les différents type de produits</h2>
+      <h2 className={styles.title}>Détail des scénarios par objet</h2>
       <div className={styles.content}>
         <p>
-          L'<b>habillement</b> correspond à un produit textile qui va de la paire de chaussures, au manteau en passant
-          par le t-shirt. Par défaut, nous considérons une <b>boite à chaussures</b>.
-        </p>
-        <p>
-          Les <b>produits culturels</b> correspondent aux livres, jeux de société, CD/vinyles, jeux vidéos, etc. Par
-          défaut, nous considérons un <b>livre</b>.
-        </p>
-        <p>
-          Les <b>équipements volumineux</b> correspondent aux gros électroménagers, l'ameublement, etc. Par défaut, nous
-          considérons un <b>lave-vaisselle</b>.
-        </p>
-        <p>
-          Pour <b>les produits de grande consommation</b>, nous avons considéré{' '}
-          <b>une commande de produits alimentaires secs</b>.
-        </p>
-      </div>
-      <h2 className={styles.title}>Les scénarios de livraison</h2>
-      <div className={styles.content}>
-        <p>
-          Dans cette première version, 3 scénarios sont proposés: la livraison{' '}
-          <b>à domicile, en point relais ou en click & collect</b>, tous adaptables à l'option{' '}
-          <b>"colis qui vient de loin"</b>.
-        </p>
-        <p>
-          Pour chaque scénario, nous prenons en compte l'<b>ensemble des étapes d'un processus de livraison</b> :
-          commande en ligne, emballage, entrepôt de stockage, plateformes de tri, transport inter-platerformes,
-          infrastruture de collecte, et enfin, le déplacement consommateur dans le cas d'une livraison en point relais
-          ou click & collect (<i>Voir ci-dessous pour le détail des processus de livraison</i>). Pour un article{' '}
-          <b>"qui vient de loin"</b>, nous avons fait l'hypothèse que le colis arrive <b>par avion depuis la Chine</b>{' '}
-          via une étape de transport supplémentaire (9000km parcourus par avion, mix électrique de l'entrepôt de départ
-          adapté). Nous ne prenons pas en compte les trainées de condensation pour l’aérien.
-        </p>
-      </div>
-      <h2 className={styles.title}>Des informations supplémentaires sur les paramètres...</h2>
-      <div className={styles.content}>
-        <p>
-          Pour le processus de <b>commande en ligne</b>, le type de produit impacte le temps de recherche web et donc
-          l'empreinte de l'utilisation du terminal pour effectuer effectuer l'achat. On conserve donc une valeur unique
-          (<b>5,4 gCO₂e</b>) par commande quel que soit le produit.
-        </p>
-        <p>
-          Un <b>emballage carton</b> a été attribué à chaque type de colis selon sa taille.
-        </p>
-        <p>
-          Pour les étapes de <b>stockage</b> en entrepôt, on considère un entrepôt de{' '}
-          <b>
-            10 000 m<sup>2</sup>
-          </b>
-          . Le nombre de jour de stockage dépend du type de produit.
-        </p>
-        <p>
-          En ce qui concerne les <b>camions de livraison</b>, pour le <b>transport longue distance</b>, nous avons
-          considéré un <b>poids lourd moyen</b> (type 44 tonnes) tandis que pour les <b>derniers kilomètres</b> de
-          livraison, nous avons considéré un <b>véhicule utilitaire léger</b>.{' '}
-        </p>
-      </div>
-      <h2 className={styles.title}>Fréquences de livraison</h2>
-      <div className={styles.content}>
-        <p>
-          Pour calculer l’impact annuel de la livraison de colis en fonction de votre fréquence de livraison nous
-          faisons les calculs suivants :
+          Voici le détail des données utilisées dans le calcul des scénarios d’achat, pour chacun des objets proposés
+          dans le simulateur :
         </p>
         <ul>
-          <li>
-            <p>X colis x 1 si par an</p>
-          </li>
-          <li>
-            <p>X colis x 12 si par mois</p>
-          </li>
-          <li>
-            <p>X colis x 52 si par semaine</p>
-          </li>
+          <Dropdown title='Courses alimentaires' className={styles.dropdown}>
+            <p>
+              Les courses alimentaires incluent une sélection d’aliments secs non-frais comme des pâtes, du riz, des
+              lentilles, de la farine, des huiles, du sucre, de la pâte à tartiner, du café, des cookies, des
+              madeleines, ainsi que des boissons comme du soda et de l’eau minérale.
+            </p>
+            <LivraisonEquivalents slug={LivraisonType.Courses} />
+          </Dropdown>
+          <Dropdown title='Paires de chaussure' className={styles.dropdown}>
+            <LivraisonEquivalents slug={LivraisonType.Chaussure} />
+          </Dropdown>
+          <Dropdown title='Livre' className={styles.dropdown}>
+            <LivraisonEquivalents slug={LivraisonType.Livre} />
+          </Dropdown>
+          <Dropdown title='Micro-ondes' className={styles.dropdown}>
+            <LivraisonEquivalents slug={LivraisonType.MicroOndes} />
+          </Dropdown>
+          <Dropdown title='Commande de vêtements' className={styles.dropdown}>
+            <p>La commande de vêtements comprend quatre t-shirts, un jean et un manteau.</p>
+            <LivraisonEquivalents slug={LivraisonType.Vetements} />
+          </Dropdown>
+          <Dropdown title='Lave-linge' className={styles.dropdown}>
+            <LivraisonEquivalents slug={LivraisonType.LaveLinge} />
+          </Dropdown>
+          <Dropdown title='Lit complet' className={styles.dropdown}>
+            <LivraisonEquivalents slug={LivraisonType.Lit} />
+          </Dropdown>
+          <Dropdown title='Smartphone' className={styles.dropdown}>
+            <LivraisonEquivalents slug={LivraisonType.Smartphone} />
+          </Dropdown>
+          <Dropdown title='Caisse de vin' className={styles.dropdown}>
+            <LivraisonEquivalents slug={LivraisonType.Vin} />
+          </Dropdown>
+          <Dropdown title='Cafetière Expresso' className={styles.dropdown}>
+            <LivraisonEquivalents slug={LivraisonType.Cafetiere} />
+          </Dropdown>
         </ul>
       </div>
-      <div className={styles.content}>
-        <details>
-          <summary>Livraison à domicile</summary>
-          <ul>
-            <li>
-              <p>Processus de commande en ligne</p>
-            </li>
-            <li>
-              <p>Entrepôt initial de stockage et de préparation du colis</p>
-            </li>
-            <li>
-              <p>
-                Transport entrepôt - plateforme 1 : <b>400 km</b> (
-                <i>
-                  poids lourd moyen, taux de remplissage de 15% et un taux de retour à vide de 20% roulant à une vitesse
-                  moyenne de 60 km/h
-                </i>
-                )
-              </p>
-            </li>
-            <li>
-              <p>Plateforme 1</p>
-            </li>
-            <li>
-              <p>
-                Transport plateforme 1 - plateforme 2 : <b>400 km</b> (
-                <i>
-                  poids lourd moyen, taux de remplissage de 15% et un taux de retour à vide de 20% roulant à une vitesse
-                  moyenne de 60 km/h
-                </i>
-                )
-              </p>
-            </li>
-            <li>
-              <p>Plateforme 2</p>
-            </li>
-            <li>
-              <p>
-                Transport plateforme 2 - domicile : <b>70 km</b> (
-                <i>
-                  VUL, taux de remplissage de 15% et un taux de retour à vide de 20% roulant à une vitesse moyenne de 30
-                  km/h
-                </i>
-                )
-              </p>
-            </li>
-          </ul>
-        </details>
-        <details>
-          <summary>Livraison en point relais</summary>
-          <ul>
-            <li>
-              <p>Processus de commande en ligne</p>
-            </li>
-            <li>
-              <p>Entrepôt initial de stockage et de préparation du colis</p>
-            </li>
-            <li>
-              <p>
-                Transport entrepôt - plateforme 1: <b>400 km</b> (
-                <i>
-                  poids lourd moyen, taux de remplissage de 15% et un taux de retour à vide de 20% roulant à une vitesse
-                  moyenne de 60 km/h
-                </i>
-                )
-              </p>
-            </li>
-            <li>
-              <p>Plateforme 1</p>
-            </li>
-            <li>
-              <p>
-                Transport plateforme 1 - plateforme 2: <b>400 km</b> (
-                <i>
-                  poids lourd moyen, taux de remplissage de 15% et un taux de retour à vide de 20% roulant à une vitesse
-                  moyenne de 60 km/h
-                </i>
-                )
-              </p>
-            </li>
-            <li>
-              <p>Plateforme 2</p>
-            </li>
-            <li>
-              <p>
-                Transport plateforme 2 - point de retrait: <b>70 km</b> (
-                <i>
-                  VUL, taux de remplissage de 15% et un taux de retour à vide de 20% roulant à une vitesse moyenne de 30
-                  km/h
-                </i>
-                )
-              </p>
-            </li>
-            <li>
-              <p>Point de retrait</p>
-            </li>
-            <li>
-              <p>Déplacement consommateur</p>
-            </li>
-          </ul>
-        </details>
-        <details>
-          <summary>Livraison en click & collect</summary>
-          <ul>
-            <li>
-              <p>Processus de commande en ligne</p>
-            </li>
-            <li>
-              <p>Entrepôt initial de stockage et de préparation du colis</p>
-            </li>
-            <li>
-              <p>
-                Transport entrepôt - plateforme 1: <b>400 km</b> (
-                <i>
-                  poids lourd moyen, taux de remplissage de 15% et un taux de retour à vide de 20% roulant à une vitesse
-                  moyenne de 60 km/h
-                </i>
-                )
-              </p>
-            </li>
-            <li>
-              <p>Plateforme 1</p>
-            </li>
-            <li>
-              <p>
-                Transport plateforme 1 - plateforme 2: <b>400 km</b> (
-                <i>
-                  poids lourd moyen, taux de remplissage de 15% et un taux de retour à vide de 20% roulant à une vitesse
-                  moyenne de 60 km/h
-                </i>
-                )
-              </p>
-            </li>
-            <li>
-              <p>Plateforme 2</p>
-            </li>
-            <li>
-              <p>
-                Transport plateforme 2 - magasin: <b>70 km</b> (
-                <i>
-                  VUL, taux de remplissage de 15% et un taux de retour à vide de 20% roulant à une vitesse moyenne de 30
-                  km/h
-                </i>
-                )
-              </p>
-            </li>
-            <li>
-              <p>Magasin</p>
-            </li>
-            <li>
-              <p>Déplacement consommateur</p>
-            </li>
-          </ul>
-        </details>
-      </div>
+      <h2 className={styles.title}>Parcours d’un colis</h2>
       <div className={styles.content}>
         <p>
-          Pour plus de détails, consultez{' '}
-          <Link href='/doc/livraison' title='Lien externe : documentation détaillée' target='_blank'>
-            la documentation détaillée
-            <NewTabIcon />
-          </Link>
+          L'impact carbone d'un colis est déterminé par l'ensemble des étapes de son parcours logistique, depuis la
+          commande jusqu'à la récupération par le consommateur.
         </p>
+        <p>
+          Dans le simulateur, ces étapes logistiques (1,2 et 3) sont prises en compte dans le calcul de l'impact de
+          chaque scénario, dans la partie <b>Logistique / Livraison</b>.
+        </p>
+        <ul>
+          <Dropdown title='1. Commande & Préparation' className={styles.dropdown}>
+            <p>
+              L’achat en magasin commence par le déplacement tandis que tout achat en ligne commence par la navigation.
+            </p>
+            <ul className={styles.list}>
+              <li>
+                <b>Processus de commande</b>: qu’il s’agisse d’un achat courant ou réfléchi, la navigation en ligne
+                ainsi que la fabrication des équipements numériques impliquent une consommation d’énergie et de
+                ressources.
+              </li>
+              <li>
+                <b>Emballage</b>: La typologie et la taille de l'emballage utilisé (carton, papier bulle, plastique)
+                contribuent à l’impact carbone global du colis.
+              </li>
+            </ul>
+          </Dropdown>
+          <Dropdown title='2. Stockage & Transit' className={styles.dropdown}>
+            <ul className={styles.list}>
+              <li>
+                <b>Infrastructure</b> : une part de la construction des infrastructures et des énergies utilisées
+                (électricité, gaz) est attribuée au colis stocké/en transit.
+              </li>
+              <li>
+                Cette part est calculée en fonction de la surface occupée (m²) qu’il y occupe et de la durée de stockage
+                ou de transit (en jours).
+              </li>
+            </ul>
+          </Dropdown>
+          <Dropdown title='3. Transport' className={styles.dropdown}>
+            <ul className={styles.list}>
+              <li>
+                <b>Acheminement</b> : - le colis est d’abord transporté en *poids lourd moyen* ****entre l’entrepôt et
+                le centre de distribution, puis en *véhicule utilitaire léger* jusqu’au magasin ou au point de relais.
+              </li>
+              <li>
+                L’impact carbone du transport intègre également la construction des infrastructures routières, la
+                fabrication des véhicules et la consommation de carburant, répartie selon le poids (kg) et le volume
+                (m³) des colis.
+              </li>
+            </ul>
+          </Dropdown>
+          <Dropdown title='4. Mon déplacement' className={styles.dropdown}>
+            <ul className={styles.list}>
+              <li>
+                <b>Achat en magasin - Click & Collect</b> : La distance moyenne par défaut entre le domicile et le
+                magasin est fixée à 1,5 km à pied et 15 km en voiture. Le calcul prend en compte l’aller-retour, soit
+                une distance multipliée par deux. Il vous est possible d’ajuster cette distance pour chaque scénario.
+              </li>
+              <li>
+                <b>Livraison en point relais</b> : La distance moyenne par défaut entre le domicile et le point relais
+                est de 1,5 km à pied et 3,5 km en voiture. L’aller-retour est également pris en compte, doublant ainsi
+                la distance. Vous pouvez modifier cette valeur selon le scénario.
+              </li>
+            </ul>
+          </Dropdown>
+          <Dropdown title='5. Fabrication' className={styles.dropdown}>
+            <ul className={styles.list}>
+              <li>
+                La phase de fabrication inclut l’extraction des matières premières, leur transformation et l’assemblage
+                des différents composants. Pour obtenir une estimation complète de l’impact de votre colis, vous pouvez
+                ajouter cette option.
+              </li>
+            </ul>
+          </Dropdown>
+        </ul>
+      </div>
+      <h2 className={styles.title}>Modes de livraison : les spécificités</h2>
+      <div className={styles.content}>
+        <p>
+          L’impact de chaque mode de livraison repose sur le schéma logistique en amont et le moyen de déplacement
+          utilisé pour récupérer le colis.
+        </p>
+        <ul>
+          <Dropdown title='Achat en magasin' className={styles.dropdown}>
+            <p>
+              Les articles stockés initialement en entrepôt transitent vers une <b>plateforme de groupage</b>, puis un{' '}
+              <b>centre de distribution</b> avant d’être expédiés et mis en rayon <b>en magasin</b>.
+            </p>
+          </Dropdown>
+          <Dropdown title='Livraison à domicile' className={styles.dropdown}>
+            <p>
+              Une fois la commande reçue, le colis est préparé et emballé dans <b>l’entrepôt</b>. Il suit ensuite le
+              même itinéraire logistique <b>plateforme de groupage, centre de distribution)</b> avant d’être acheminé au
+              domicile du consommateur. La livraison à domicile implique des trajets plus longs pour le véhicule
+              utilitaire lors de <b>la tournée de livraison</b>.
+            </p>
+          </Dropdown>
+          <Dropdown title='Livraison en point relais' className={styles.dropdown}>
+            <p>
+              Le colis suit le même circuit que pour la livraison à domicile, mais son trajet s’arrête au point relais.
+            </p>
+          </Dropdown>
+          <Dropdown title='Livraison en Click & Collect' className={styles.dropdown}>
+            <p>
+              Les articles, stockés en entrepôt, suivent le même parcours que pour un achat en magasin (plateforme de
+              groupage, centre de distribution, magasin). Après réception de la commande, le colis est préparé et
+              emballé dans <b>le magasin</b>.
+            </p>
+          </Dropdown>
+        </ul>
       </div>
     </>
   )
@@ -266,217 +184,173 @@ const ESLivraisonData = () => {
     <>
       <div className={styles.content}>
         <p>
-          <Link href='https://librairie.ademe.fr/mobilite-et-transport/6261-e-commerce-modelisation-des-impacts-et-recommandations-filieres-et-grand-public.html'>
-            El estudio Comercio en línea - 2023
-          </Link>{' '}
-          para profesionales del comercio electrónico. La herramienta ECEL utilizada para calcular este estudio se ha
-          adaptado al contexto de los particulares en forma de simulador.
+          Nuestros cálculos y suposiciones se basan en los datos de{' '}
+          <Link href='https://infos.ademe.fr/article-magazine/limpact-environnemental-du-commerce-en-ligne'>
+            el estudio de ADEME sobre los impactos ambientales del comercio en línea
+          </Link>
+          . Utilizamos los factores de emisión de la{' '}
+          <Link href='https://base-empreinte.ademe.fr/donnees/jeu-donnees'>Base Empreinte</Link> en nuestros análisis.
         </p>
       </div>
-      <h2 className={styles.title}>Los diferentes tipos de producto</h2>
+      <h2 className={styles.title}>Detalle de los escenarios por objeto</h2>
       <div className={styles.content}>
         <p>
-          La <b>ropa</b> corresponde a un producto textil que va desde un par de zapatos hasta un abrigo o una camiseta.
-          Por defecto, consideramos una <b>caja de zapatos</b>.
-        </p>
-        <p>
-          Los <b>productos culturales</b> incluyen libros, juegos de mesa, CD/vinilo, videojuegos, etc. Por defecto,
-          consideramos un <b>libro</b>.
-        </p>
-        <p>
-          El <b>equipamiento voluminoso</b> incluye grandes electrodomésticos, muebles, etc. Por defecto, consideramos
-          un <b>lavavajillas</b>.
-        </p>
-        <p>
-          Para <b>los bienes de consumo rápido</b>, consideramos <b>un pedido de productos alimenticios secos</b>.
-        </p>
-      </div>
-      <h2 className={styles.title}>Escenarios de entrega</h2>
-      <div className={styles.content}>
-        <p>
-          <b>a domicilio, entrega en punto de relevo o click & collect</b>, todos ellos adaptables a la opción{' '}
-          <b>"paquete a distancia"</b>.
-        </p>
-        <p>
-          Para cada escenario, tenemos en cuenta <b>todas las etapas del proceso de entrega</b>: pedido en línea,
-          embalaje, almacén de salida, plataformas de clasificación, transporte entre plataformas, infraestructura de
-          recogida y, por último, el recorrido del consumidor en caso de entrega en un punto de relevo o click & collect
-          (<i>véanse más abajo los detalles de los procesos de entrega</i>). Para un artículo{' '}
-          <b>"procedente de lejos"</b>, hemos supuesto que el paquete llega <b>en avión desde China</b> a través de una
-          etapa de transporte adicional (9.000 km recorridos en avión, mezcla de electricidad adaptada del almacén de
-          salida). No hemos tenido en cuenta las estelas de condensación del transporte aéreo.
-        </p>
-      </div>
-      <h2 className={styles.title}>Información adicional sobre los parámetros...</h2>
-      <div className={styles.content}>
-        <p>
-          En el proceso de <b>pedido en línea</b>, el tipo de producto influye en el tiempo de búsqueda en la web y, por
-          tanto, en la huella del terminal utilizado para completar la compra. Por ello, hemos mantenido un valor único
-          (<b>5,4 gCO₂e</b>) por pedido, sea cual sea el producto.
-        </p>
-        <p>
-          Se ha asignado una <b>caja de cartón</b> a cada tipo de paquete en función de su tamaño.
-        </p>
-        <p>
-          Para las etapas de <b>almacenamiento</b>, consideramos un almacén de{' '}
-          <b>
-            10.000 m<sup>2</sup>
-          </b>
-          . El número de días de almacenamiento depende del tipo de producto.
-        </p>
-        <p>
-          En cuanto a los <b>camiones de reparto</b>, para el <b>transporte de larga distancia</b>, hemos considerado un{' '}
-          <b>vehículo pesado medio</b> (tipo 44 toneladas), mientras que para los <b>últimos kilómetros</b> de reparto,
-          hemos considerado un <b>vehículo comercial ligero</b>.
-        </p>
-      </div>
-      <h2 className={styles.title}>Frecuencias de entrega</h2>
-      <div className={styles.content}>
-        <p>
-          Para calcular el impacto anual de la entrega de paquetes en función de su frecuencia de entrega, realizamos
-          los siguientes cálculos:{' '}
+          Aquí están los detalles de los datos utilizados en el cálculo de los escenarios de compra, para cada uno de
+          los objetos propuestos en el simulador:
         </p>
         <ul>
-          <li>
-            <p>X paquetes x 1 si es anual</p>
-          </li>
-          <li>
-            <p>X paquetes x 12 si es mensual</p>
-          </li>
-          <li>
-            <p>X paquetes x 52 si es semanal</p>
-          </li>
+          <Dropdown title='Compras de alimentos' className={styles.dropdown}>
+            <p>
+              Las compras de alimentos incluyen una selección de alimentos secos no frescos como pasta, arroz, lentejas,
+              harina, aceites, azúcar, crema de cacao, café, galletas, magdalenas, así como bebidas como refrescos y
+              agua mineral.
+            </p>
+            <LivraisonEquivalents slug={LivraisonType.Courses} />
+          </Dropdown>
+          <Dropdown title='Pares de zapatos' className={styles.dropdown}>
+            <LivraisonEquivalents slug={LivraisonType.Chaussure} />
+          </Dropdown>
+          <Dropdown title='Libro' className={styles.dropdown}>
+            <LivraisonEquivalents slug={LivraisonType.Livre} />
+          </Dropdown>
+          <Dropdown title='Microondas' className={styles.dropdown}>
+            <LivraisonEquivalents slug={LivraisonType.MicroOndes} />
+          </Dropdown>
+          <Dropdown title='Pedido de ropa' className={styles.dropdown}>
+            <p>El pedido de ropa incluye cuatro camisetas, un jean y un abrigo.</p>
+            <LivraisonEquivalents slug={LivraisonType.Vetements} />
+          </Dropdown>
+          <Dropdown title='Lavadora' className={styles.dropdown}>
+            <LivraisonEquivalents slug={LivraisonType.LaveLinge} />
+          </Dropdown>
+          <Dropdown title='Cama completa' className={styles.dropdown}>
+            <LivraisonEquivalents slug={LivraisonType.Lit} />
+          </Dropdown>
+          <Dropdown title='Smartphone' className={styles.dropdown}>
+            <LivraisonEquivalents slug={LivraisonType.Smartphone} />
+          </Dropdown>
+          <Dropdown title='Caja de vino' className={styles.dropdown}>
+            <LivraisonEquivalents slug={LivraisonType.Vin} />
+          </Dropdown>
+          <Dropdown title='Cafetera Expresso' className={styles.dropdown}>
+            <LivraisonEquivalents slug={LivraisonType.Cafetiere} />
+          </Dropdown>
         </ul>
       </div>
-      <div className={styles.content}>
-        <details>
-          <summary>Entrega a domicilio</summary>
-          <ul>
-            <li>
-              <p>Proceso de pedido en línea</p>
-            </li>
-            <li>
-              <p>Almacén inicial y almacén de preparación de paquetes</p>
-            </li>
-            <li>
-              <p>
-                Almacén de transporte - plataforma 1:<b>400 km</b> (
-                <i>camión medio, 15% de factor de carga y 20% de retorno en vacío a una velocidad media de 60 km/h</i>)
-              </p>
-            </li>
-            <li>
-              <p>Plataforma 1</p>
-            </li>
-            <li>
-              <p>
-                Plataforma 1 - plataforma 2 : <b>400 km</b> (
-                <i>camión medio, 15% de factor de carga y 20% de retorno en vacío a una velocidad media de 60 km/h</i>)
-              </p>
-            </li>
-            <li>
-              <p>Plataforma 2</p>
-            </li>
-            <li>
-              <p>
-                Plataforma 2 - domicilio : <b>70 km</b> (
-                <i>camión ligero, factor de carga del 15% y 20% de retorno en vacío a una velocidad media de 30 km/h</i>
-                )
-              </p>
-            </li>
-          </ul>
-        </details>
-        <details>
-          <summary>Entrega en puntos de relevo</summary>
-          <ul>
-            <li>
-              <p>Proceso de pedido en línea</p>
-            </li>
-            <li>
-              <p>Almacén inicial y almacén de preparación de paquetes</p>
-            </li>
-            <li>
-              <p>
-                Almacén de transporte - plataforma 1: <b>400 km</b> (
-                <i>camión medio, 15% de factor de carga y 20% de retorno en vacío a una velocidad media de 60 km/h</i>)
-              </p>
-            </li>
-            <li>
-              <p>Plataforma 1</p>
-            </li>
-            <li>
-              <p>
-                Plataforma 1 - plataforma 2:: <b>400 km</b> (
-                <i>camión medio, 15% de factor de carga y 20% de retorno en vacío a una velocidad media de 60 km/h</i>)
-              </p>
-            </li>
-            <li>
-              <p>Plateforme 2</p>
-            </li>
-            <li>
-              <p>
-                Transport plateforme 2 - punto de recogida: <b>70 km</b> (
-                <i>camión ligero, factor de carga del 15% y 20% de retorno en vacío a una velocidad media de 30 km/h</i>
-                )
-              </p>
-            </li>
-            <li>
-              <p>Punto de recogida</p>
-            </li>
-            <li>
-              <p>Recorrido del consumidor</p>
-            </li>
-          </ul>
-        </details>
-        <details>
-          <summary>Entrega Click & collect</summary>
-          <ul>
-            <li>
-              <p>Proceso de pedido en línea</p>
-            </li>
-            <li>
-              <p>Almacén inicial y almacén de preparación de paquetes</p>
-            </li>
-            <li>
-              <p>
-                Almacén de transporte - plataforma 1: <b>400 km</b> (
-                <i>camión medio, 15% de factor de carga y 20% de retorno en vacío a una velocidad media de 60 km/h</i>)
-              </p>
-            </li>
-            <li>
-              <p>Plataforma 1</p>
-            </li>
-            <li>
-              <p>
-                Plataforma 1 - plataforma 2:: <b>400 km</b> (
-                <i>camión medio, 15% de factor de carga y 20% de retorno en vacío a una velocidad media de 60 km/h</i>)
-              </p>
-            </li>
-            <li>
-              <p>Plataforma 2</p>
-            </li>
-            <li>
-              <p>
-                Plataforma 2 - tienda: <b>70 km</b> (
-                <i>camión ligero, factor de carga del 15% y 20% de retorno en vacío a una velocidad media de 30 km/h</i>
-                )
-              </p>
-            </li>
-            <li>
-              <p>tienda</p>
-            </li>
-            <li>
-              <p>Recorrido del consumidor</p>
-            </li>
-          </ul>
-        </details>
-      </div>
+      <h2 className={styles.title}>Recorrido de un paquete</h2>
       <div className={styles.content}>
         <p>
-          Para más detalles, consulte{' '}
-          <Link href='/doc/livraison' title='Lien externe : documentation détaillée' target='_blank'>
-            la documentación detallada <NewTabIcon />
-          </Link>
+          El impacto de carbono de un paquete está determinado por todas las etapas de su recorrido logístico, desde el
+          pedido hasta la recogida por parte del consumidor.
         </p>
+        <p>
+          En el simulador, estas etapas logísticas (1, 2 y 3) se tienen en cuenta en el cálculo del impacto de cada
+          escenario, en la parte <b>Logística / Entrega</b>.
+        </p>
+        <ul>
+          <Dropdown title='1. Pedido y Preparación' className={styles.dropdown}>
+            <p>
+              La compra en tienda comienza con el desplazamiento, mientras que toda compra en línea comienza con la
+              navegación.
+            </p>
+            <ul className={styles.list}>
+              <li>
+                <b>Proceso de pedido</b>: ya sea una compra habitual o reflexiva, la navegación en línea y la
+                fabricación de equipos digitales implican un consumo de energía y recursos.
+              </li>
+              <li>
+                <b>Embalaje</b>: La tipología y el tamaño del embalaje utilizado (cartón, papel burbuja, plástico)
+                contribuyen al impacto de carbono global del paquete.
+              </li>
+            </ul>
+          </Dropdown>
+          <Dropdown title='2. Almacenamiento y Tránsito' className={styles.dropdown}>
+            <ul className={styles.list}>
+              <li>
+                <b>Infraestructura</b>: una parte de la construcción de infraestructuras y de las energías utilizadas
+                (electricidad, gas) se atribuye al paquete almacenado/en tránsito.
+              </li>
+              <li>
+                Esta parte se calcula en función de la superficie ocupada (m²) y del tiempo de almacenamiento o tránsito
+                (en días).
+              </li>
+            </ul>
+          </Dropdown>
+          <Dropdown title='3. Transporte' className={styles.dropdown}>
+            <ul className={styles.list}>
+              <li>
+                <b>Transporte</b>: el paquete se transporta primero en un *camión de carga media* desde el almacén hasta
+                el centro de distribución, y luego en un *vehículo utilitario ligero* hasta la tienda o el punto de
+                recogida.
+              </li>
+              <li>
+                El impacto de carbono del transporte también incluye la construcción de infraestructuras viales, la
+                fabricación de vehículos y el consumo de combustible, distribuido según el peso (kg) y el volumen (m³)
+                de los paquetes.
+              </li>
+            </ul>
+          </Dropdown>
+          <Dropdown title='4. Mi desplazamiento' className={styles.dropdown}>
+            <ul className={styles.list}>
+              <li>
+                <b>Compra en tienda - Click & Collect</b>: La distancia media por defecto entre el domicilio y la tienda
+                es de 1,5 km a pie y 15 km en coche. El cálculo tiene en cuenta el viaje de ida y vuelta, por lo que la
+                distancia se multiplica por dos. Es posible ajustar esta distancia para cada escenario.
+              </li>
+              <li>
+                <b>Entrega en punto de recogida</b>: La distancia media por defecto entre el domicilio y el punto de
+                recogida es de 1,5 km a pie y 3,5 km en coche. El viaje de ida y vuelta también se tiene en cuenta,
+                duplicando así la distancia. Puede modificar este valor según el escenario.
+              </li>
+            </ul>
+          </Dropdown>
+          <Dropdown title='5. Fabricación' className={styles.dropdown}>
+            <ul className={styles.list}>
+              <li>
+                La fase de fabricación incluye la extracción de materias primas, su transformación y el ensamblaje de
+                los diferentes componentes. Para obtener una estimación completa del impacto de su paquete, puede
+                agregar esta opción.
+              </li>
+            </ul>
+          </Dropdown>
+        </ul>
+      </div>
+      <h2 className={styles.title}>Modos de entrega: especificidades</h2>
+      <div className={styles.content}>
+        <p>
+          El impacto de cada modo de entrega se basa en el esquema logístico anterior y en el medio de transporte
+          utilizado para recoger el paquete.
+        </p>
+        <ul>
+          <Dropdown title='Compra en tienda' className={styles.dropdown}>
+            <p>
+              Los artículos almacenados inicialmente en el almacén transitan hacia una <b>plataforma de agrupación</b>,
+              luego a un <b>centro de distribución</b> antes de ser enviados y puestos en estanterías{' '}
+              <b>en la tienda</b>.
+            </p>
+          </Dropdown>
+          <Dropdown title='Entrega a domicilio' className={styles.dropdown}>
+            <p>
+              Una vez recibido el pedido, el paquete se prepara y embala en <b>el almacén</b>. Luego sigue la misma ruta
+              logística <b>plataforma de agrupación, centro de distribución</b> antes de ser entregado en el domicilio
+              del consumidor. La entrega a domicilio implica viajes más largos para el vehículo utilitario durante{' '}
+              <b>la ruta de entrega</b>.
+            </p>
+          </Dropdown>
+          <Dropdown title='Entrega en punto de recogida' className={styles.dropdown}>
+            <p>
+              El paquete sigue el mismo circuito que para la entrega a domicilio, pero su viaje termina en el punto de
+              recogida.
+            </p>
+          </Dropdown>
+          <Dropdown title='Entrega en Click & Collect' className={styles.dropdown}>
+            <p>
+              Los artículos, almacenados en el almacén, siguen el mismo recorrido que para una compra en tienda
+              (plataforma de agrupación, centro de distribución, tienda). Después de recibir el pedido, el paquete se
+              prepara y embala en <b>la tienda</b>.
+            </p>
+          </Dropdown>
+        </ul>
       </div>
     </>
   )
@@ -487,242 +361,165 @@ const ENLivraisonData = () => {
     <>
       <div className={styles.content}>
         <p>
-          <Link href='https://librairie.ademe.fr/mobilite-et-transport/6261-e-commerce-modelisation-des-impacts-et-recommandations-filieres-et-grand-public.html'>
-            The Online Commerce - 2023 study
-          </Link>{' '}
-          for E-commerce professionals. The ECEL tool at the origin of the calculations in this study has been adapted
-          to the context of individuals in the form of a simulator.{' '}
+          Our calculations and assumptions are based on data from{' '}
+          <Link href='https://infos.ademe.fr/article-magazine/limpact-environnemental-du-commerce-en-ligne'>
+            the ADEME study on the environmental impacts of online commerce
+          </Link>
+          . We use emission factors from the{' '}
+          <Link href='https://base-empreinte.ademe.fr/donnees/jeu-donnees'>Base Empreinte</Link> in our analyses.
         </p>
       </div>
-      <h2 className={styles.title}>The different types of products</h2>
+      <h2 className={styles.title}>Scenario details by object</h2>
       <div className={styles.content}>
         <p>
-          <b>Clothing</b> corresponds to a textile product that ranges from a pair of shoes to a coat to a t-shirt. By
-          default, we consider a <b>shoebox</b>.
-        </p>
-        <p>
-          <b>Cultural products</b> correspond to books, board games, CDs/vinyls, video games, etc. By default, we
-          consider a <b>book</b>.
-        </p>
-        <p>
-          <b>Large equipment</b> corresponds to large household appliances, furniture, etc. By default, we consider a{' '}
-          <b>dishwasher</b>.
-        </p>
-        <p>
-          For <b>consumer products</b>, we considered an <b>order for dry food products</b>.
-        </p>
-      </div>
-      <h2 className={styles.title}>Delivery scenarios</h2>
-      <div className={styles.content}>
-        <p>
-          In this first version, 3 scenarios are offered: <b>home delivery, relay point or click & collect</b>, all
-          adaptable to the <b>"parcel that comes from far away"</b> option.
-        </p>
-        <p>
-          For each scenario, we take into account <b>all the stages of a delivery process</b>: online ordering,
-          packaging, storage warehouse, sorting platforms, inter-platform transport, collection infrastructure, and
-          finally, consumer movement in the case of delivery to a relay point or click & collect (
-          <i>See below for details of the delivery processes</i>). For an item <b>"that comes from far away"</b>, we
-          have made the assumption that the package arrives <b>by plane from China</b> via an additional transport stage
-          (9000km traveled by plane, electrical mix of the departure warehouse adapted). We do not take condensation
-          trails into account for air travel.
-        </p>
-      </div>
-      <h2 className={styles.title}>Additional information about settings...</h2>
-      <div className={styles.content}>
-        <p>
-          For the <b>online ordering process</b>, the type of product impacts the web search time and therefore the
-          footprint of using the terminal to make the purchase. We therefore maintain a single value (<b>5.4 gCO₂e</b>)
-          per order regardless of the product.
-        </p>
-        <p>
-          A <b>cardboard packaging</b> has been assigned to each type of package according to its size.
-        </p>
-        <p>
-          For the warehouse <b>storage</b> stages, we consider a warehouse of{' '}
-          <b>
-            10,000 m<sup>2</sup>
-          </b>
-          . The number of days of storage depends on the type of product.
-        </p>
-        <p>
-          Regarding <b>delivery trucks</b>, for <b>long distance transport</b> we considered a{' '}
-          <b>medium heavy duty vehicle</b> (typically 44 tonnes) while for the <b>last few kilometers</b> of delivery we
-          considered a <b>light commercial vehicle</b>.
-        </p>
-      </div>
-      <h2 className={styles.title}>Delivery frequencies</h2>
-      <div className={styles.content}>
-        <p>
-          To calculate the annual impact of parcel delivery based on your delivery frequency, we make the following
-          calculations:
+          Here are the details of the data used in the calculation of purchase scenarios, for each of the objects
+          proposed in the simulator:
         </p>
         <ul>
-          <li>
-            <p>X package x 1 if per year </p>
-          </li>
-          <li>
-            <p>X package x 12 if per month</p>
-          </li>
-          <li>
-            <p>X package x 52 if per week</p>
-          </li>
+          <Dropdown title='Grocery shopping' className={styles.dropdown}>
+            <p>
+              Grocery shopping includes a selection of non-perishable dry foods such as pasta, rice, lentils, flour,
+              oils, sugar, chocolate spread, coffee, cookies, madeleines, as well as beverages like soda and mineral
+              water.
+            </p>
+            <LivraisonEquivalents slug={LivraisonType.Courses} />
+          </Dropdown>
+          <Dropdown title='Pairs of shoes' className={styles.dropdown}>
+            <LivraisonEquivalents slug={LivraisonType.Chaussure} />
+          </Dropdown>
+          <Dropdown title='Book' className={styles.dropdown}>
+            <LivraisonEquivalents slug={LivraisonType.Livre} />
+          </Dropdown>
+          <Dropdown title='Microwave' className={styles.dropdown}>
+            <LivraisonEquivalents slug={LivraisonType.MicroOndes} />
+          </Dropdown>
+          <Dropdown title='Clothing order' className={styles.dropdown}>
+            <p>The clothing order includes four t-shirts, a pair of jeans, and a coat.</p>
+            <LivraisonEquivalents slug={LivraisonType.Vetements} />
+          </Dropdown>
+          <Dropdown title='Washing machine' className={styles.dropdown}>
+            <LivraisonEquivalents slug={LivraisonType.LaveLinge} />
+          </Dropdown>
+          <Dropdown title='Complete bed' className={styles.dropdown}>
+            <LivraisonEquivalents slug={LivraisonType.Lit} />
+          </Dropdown>
+          <Dropdown title='Smartphone' className={styles.dropdown}>
+            <LivraisonEquivalents slug={LivraisonType.Smartphone} />
+          </Dropdown>
+          <Dropdown title='Case of wine' className={styles.dropdown}>
+            <LivraisonEquivalents slug={LivraisonType.Vin} />
+          </Dropdown>
+          <Dropdown title='Espresso coffee maker' className={styles.dropdown}>
+            <LivraisonEquivalents slug={LivraisonType.Cafetiere} />
+          </Dropdown>
         </ul>
       </div>
-      <div className={styles.content}>
-        <details>
-          <summary>Home delivery</summary>
-          <ul>
-            <li>
-              <p>Online ordering process</p>
-            </li>
-            <li>
-              <p>Initial warehouse for storage and preparation of the package</p>
-            </li>
-            <li>
-              <p>
-                Warehouse transport - platform 1: <b>400 km</b> (
-                <i>
-                  average heavy weight, filling rate of 15% and an empty return rate of 20% traveling at an average
-                  speed of 60 km/h
-                </i>
-                )
-              </p>
-            </li>
-            <li>
-              <p>Platform 1</p>
-            </li>
-            <li>
-              <p>
-                Transport platform 1 - platform 2: <b>400 km</b> (
-                <i>
-                  average heavy weight, filling rate of 15% and an empty return rate of 20% traveling at an average
-                  speed of 60 km/h
-                </i>
-                )
-              </p>
-            </li>
-            <li>
-              <p>Plateform 2</p>
-            </li>
-            <li>
-              <p>
-                Transport platform 2 - home: <b>70 km</b> (
-                <i>LCV, filling rate of 15% and an empty return rate of 20% traveling at an average speed of 30 km/h</i>
-                )
-              </p>
-            </li>
-          </ul>
-        </details>
-        <details>
-          <summary>Click & collect delivery</summary>
-          <ul>
-            <li>
-              <p>Online ordering process</p>
-            </li>
-            <li>
-              <p>Initial warehouse for storage and preparation of the package</p>
-            </li>
-            <li>
-              <p>
-                Warehouse transport - platform 1: <b>400 km</b> (
-                <i>
-                  average heavy weight, filling rate of 15% and an empty return rate of 20% traveling at an average
-                  speed of 60 km/h
-                </i>
-                )
-              </p>
-            </li>
-            <li>
-              <p>Platform 1</p>
-            </li>
-            <li>
-              <p>
-                Transport platform 1 - platform 2: <b>400 km</b> (
-                <i>
-                  average heavy weight, filling rate of 15% and an empty return rate of 20% traveling at an average
-                  speed of 60 km/h
-                </i>
-                )
-              </p>
-            </li>
-            <li>
-              <p>Plateform 2</p>
-            </li>
-            <li>
-              <p>
-                Transport platform 2 - collection point: <b>70 km</b> (
-                <i>LCV, filling rate of 15% and an empty return rate of 20% traveling at an average speed of 30 km/h</i>
-                )
-              </p>
-            </li>
-            <li>
-              <p>Withdrawal point</p>
-            </li>
-            <li>
-              <p>Consumer travel</p>
-            </li>
-          </ul>
-        </details>
-        <details>
-          <summary>Livraison en click & collect</summary>
-          <ul>
-            <li>
-              <p>Online ordering process</p>
-            </li>
-            <li>
-              <p>Initial warehouse for storage and preparation of the package</p>
-            </li>
-            <li>
-              <p>
-                Warehouse transport - platform 1: <b>400 km</b> (
-                <i>
-                  average heavy weight, filling rate of 15% and an empty return rate of 20% traveling at an average
-                  speed of 60 km/h
-                </i>
-                )
-              </p>
-            </li>
-            <li>
-              <p>Platform 1</p>
-            </li>
-            <li>
-              <p>
-                Transport platform 1 - platform 2: <b>400 km</b> (
-                <i>
-                  average heavy weight, filling rate of 15% and an empty return rate of 20% traveling at an average
-                  speed of 60 km/h
-                </i>
-                )
-              </p>
-            </li>
-            <li>
-              <p>Plateform 2</p>
-            </li>
-            <li>
-              <p>
-                Transport platform 2 - store: <b>70 km</b> (
-                <i>LCV, filling rate of 15% and an empty return rate of 20% traveling at an average speed of 30 km/h</i>
-                )
-              </p>
-            </li>
-            <li>
-              <p>Store</p>
-            </li>
-            <li>
-              <p>Consumer travel</p>
-            </li>
-          </ul>
-        </details>
-      </div>
+      <h2 className={styles.title}>Package journey</h2>
       <div className={styles.content}>
         <p>
-          For more details, see{' '}
-          <Link href='/doc/livraison' title='Lien externe : documentation détaillée' target='_blank'>
-            the detailed documentation
-            <NewTabIcon />
-          </Link>
+          The carbon impact of a package is determined by all the stages of its logistical journey, from the order to
+          the consumer's collection.
         </p>
+        <p>
+          In the simulator, these logistical stages (1, 2, and 3) are taken into account in the calculation of the
+          impact of each scenario, in the <b>Logistics / Delivery</b> section.
+        </p>
+        <ul>
+          <Dropdown title='1. Order & Preparation' className={styles.dropdown}>
+            <p>In-store purchase begins with the trip, while any online purchase begins with browsing.</p>
+            <ul className={styles.list}>
+              <li>
+                <b>Order process</b>: whether it is a routine or considered purchase, online browsing and the
+                manufacture of digital equipment involve energy and resource consumption.
+              </li>
+              <li>
+                <b>Packaging</b>: The type and size of packaging used (cardboard, bubble wrap, plastic) contribute to
+                the overall carbon impact of the package.
+              </li>
+            </ul>
+          </Dropdown>
+          <Dropdown title='2. Storage & Transit' className={styles.dropdown}>
+            <ul className={styles.list}>
+              <li>
+                <b>Infrastructure</b>: a portion of the construction of infrastructures and the energies used
+                (electricity, gas) is attributed to the stored/in-transit package.
+              </li>
+              <li>
+                This portion is calculated based on the occupied surface area (m²) and the storage or transit duration
+                (in days).
+              </li>
+            </ul>
+          </Dropdown>
+          <Dropdown title='3. Transport' className={styles.dropdown}>
+            <ul className={styles.list}>
+              <li>
+                <b>Transport</b>: the package is first transported by *medium heavy truck* from the warehouse to the
+                distribution center, then by *light utility vehicle* to the store or pickup point.
+              </li>
+              <li>
+                The carbon impact of transport also includes the construction of road infrastructures, the manufacture
+                of vehicles, and fuel consumption, distributed according to the weight (kg) and volume (m³) of the
+                packages.
+              </li>
+            </ul>
+          </Dropdown>
+          <Dropdown title='4. My trip' className={styles.dropdown}>
+            <ul className={styles.list}>
+              <li>
+                <b>In-store purchase - Click & Collect</b>: The default average distance between home and the store is
+                set at 1.5 km on foot and 15 km by car. The calculation takes into account the round trip, so the
+                distance is doubled. You can adjust this distance for each scenario.
+              </li>
+              <li>
+                <b>Pickup point delivery</b>: The default average distance between home and the pickup point is 1.5 km
+                on foot and 3.5 km by car. The round trip is also taken into account, doubling the distance. You can
+                modify this value according to the scenario.
+              </li>
+            </ul>
+          </Dropdown>
+          <Dropdown title='5. Manufacturing' className={styles.dropdown}>
+            <ul className={styles.list}>
+              <li>
+                The manufacturing phase includes the extraction of raw materials, their transformation, and the assembly
+                of the various components. To get a complete estimate of the impact of your package, you can add this
+                option.
+              </li>
+            </ul>
+          </Dropdown>
+        </ul>
+      </div>
+      <h2 className={styles.title}>Delivery modes: specifics</h2>
+      <div className={styles.content}>
+        <p>
+          The impact of each delivery mode is based on the upstream logistics scheme and the means of transport used to
+          collect the package.
+        </p>
+        <ul>
+          <Dropdown title='In-store purchase' className={styles.dropdown}>
+            <p>
+              Items initially stored in the warehouse transit to a <b>grouping platform</b>, then a{' '}
+              <b>distribution center</b> before being shipped and shelved <b>in the store</b>.
+            </p>
+          </Dropdown>
+          <Dropdown title='Home delivery' className={styles.dropdown}>
+            <p>
+              Once the order is received, the package is prepared and packed in <b>the warehouse</b>. It then follows
+              the same logistical route <b>(grouping platform, distribution center)</b> before being delivered to the
+              consumer's home. Home delivery involves longer trips for the utility vehicle during{' '}
+              <b>the delivery route</b>.
+            </p>
+          </Dropdown>
+          <Dropdown title='Pickup point delivery' className={styles.dropdown}>
+            <p>The package follows the same circuit as for home delivery, but its journey ends at the pickup point.</p>
+          </Dropdown>
+          <Dropdown title='Click & Collect delivery' className={styles.dropdown}>
+            <p>
+              Items, stored in the warehouse, follow the same route as for an in-store purchase (grouping platform,
+              distribution center, store). After receiving the order, the package is prepared and packed in{' '}
+              <b>the store</b>.
+            </p>
+          </Dropdown>
+        </ul>
       </div>
     </>
   )

@@ -16,7 +16,7 @@ const FRAlimentationData = () => {
           Toutefois pour certains aliments spécifiques, nous avons réalisé une moyenne de plusieurs facteurs d’émission
           :
         </p>
-        <ul>
+        <ul className={styles.list}>
           <li>
             Boeuf : <b>Impact carbone = 26,20 kg de CO2e / kg</b>
             <br />
@@ -103,7 +103,7 @@ const ESAlimentationData = () => {
           los datos tal como se muestran en la base de datos.
         </p>
         <p>Sin embargo, para algunos alimentos específicos, hemos promediado varios factores de emisión:</p>
-        <ul>
+        <ul className={styles.list}>
           <li>
             Carne de res: <b>Impacto de carbono = 26,20 kg de CO2e / kg</b>
             <br />
@@ -188,7 +188,7 @@ const ENAlimentationData = () => {
           displayed in the database.
         </p>
         <p>However, for some specific foods, we have averaged several emission factors:</p>
-        <ul>
+        <ul className={styles.list}>
           <li>
             Beef: <b>Carbon impact = 26.20 kg CO2e / kg</b>
             <br />
