@@ -9,7 +9,7 @@ const FRTransportData = () => {
       <div className={styles.content}>
         <p>Les valeurs sont exprimées par personne en France et incluent :</p>
         <div>
-          <ul>
+          <ul className={styles.list}>
             <li>
               <p>
                 Les <b>émissions directes</b>
@@ -42,7 +42,7 @@ const FRTransportData = () => {
       <div className={styles.content}>
         <p>Nos hypothèses de calcul considèrent :</p>
         <div>
-          <ul>
+          <ul className={styles.list}>
             <li>
               <p>
                 1 <b>seul passager pour une voiture</b> (thermique ou électrique).
@@ -60,7 +60,7 @@ const FRTransportData = () => {
           <Link href='https://base-empreinte.ademe.fr/donnees/jeu-donnees'>Base Empreinte</Link> :
         </p>
         <div>
-          <ul>
+          <ul className={styles.list}>
             <li>
               <p>
                 <b>Autocar</b> : 30 personnes - 35,2 gCO₂e/km/personne ;
@@ -138,7 +138,7 @@ const ESTransportData = () => {
       <div className={styles.content}>
         <p>Los valores se expresan por persona en Francia e incluyen :</p>
         <div>
-          <ul>
+          <ul className={styles.list}>
             <li>
               <p>
                 <b>Emisiones directas</b>
@@ -171,7 +171,7 @@ const ESTransportData = () => {
       <div className={styles.content}>
         <p>Nuestras hipótesis de cálculo consideran :</p>
         <div>
-          <ul>
+          <ul className={styles.list}>
             <li>
               <p>
                 1 <b>único pasajero por coche</b> (térmico o eléctrico).
@@ -189,7 +189,7 @@ const ESTransportData = () => {
           <Link href='https://base-empreinte.ademe.fr/donnees/jeu-donnees'>base de datos Empreinte</Link> :
         </p>
         <div>
-          <ul>
+          <ul className={styles.list}>
             <li>
               <p>
                 <b>Autocar</b> : 30 personas - 35,2 gCO₂e/km/persona ;
@@ -269,7 +269,7 @@ const ENTransportData = () => {
       <div className={styles.content}>
         <p>The values ​​are expressed per person in France and include:</p>
         <div>
-          <ul>
+          <ul className={styles.list}>
             <li>
               <p>
                 <b>Direct broadcasts</b>
@@ -301,7 +301,7 @@ const ENTransportData = () => {
       <div className={styles.content}>
         <p>Our calculation assumptions consider:</p>
         <div>
-          <ul>
+          <ul className={styles.list}>
             <li>
               <p>
                 1 <b>passenger per car</b> (thermal or electric).
@@ -319,7 +319,7 @@ const ENTransportData = () => {
           <Link href='https://base-empreinte.ademe.fr/donnees/jeu-donnees'>Base Empreinte</Link> :
         </p>
         <div>
-          <ul>
+          <ul className={styles.list}>
             <li>
               <p>
                 <b>Coach</b> : 30 people - 35,2 gCO₂e/km/person ;

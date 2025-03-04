@@ -1,6 +1,6 @@
 import { LinkProps } from 'next/link'
 import { ExtendedRecordMap } from 'notion-types'
-import React, { ReactNode, useEffect, useRef } from 'react'
+import { ReactNode, useEffect, useRef } from 'react'
 import { NotionRenderer } from 'react-notion-x'
 import { Collection } from 'react-notion-x/build/third-party/collection'
 import 'react-notion-x/src/styles.css'

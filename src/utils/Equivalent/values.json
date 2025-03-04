@@ -1715,5 +1715,61 @@
     "fr": "nuit[s] dans une résidence secondaire",
     "en": "night[s] in a second home",
     "es": "noche[s] en una segunda casa"
+  },
+  "magasin": {
+    "category": 12,
+    "value": 6840,
+    "fr": "achat[s] en magasin",
+    "en": "purchase[s] in a store",
+    "es": "compra[s] en una tienda"
+  },
+  "magasindouce": {
+    "category": 12,
+    "value": 310,
+    "fr": "achat[s] en magasin",
+    "en": "purchase[s] in a store",
+    "es": "compra[s] en una tienda"
+  },
+  "pointrelais": {
+    "category": 12,
+    "value": 2030,
+    "fr": "livraison[s] en point relais",
+    "en": "delivery[s] in a relay point",
+    "es": "entrega[s] en un punto de relevo"
+  },
+  "pointrelaisdouce": {
+    "category": 12,
+    "value": 510,
+    "fr": "livraison[s] en point relais",
+    "en": "delivery[s] in a relay point",
+    "es": "entrega[s] en un punto de relevo"
+  },
+  "clickcollect": {
+    "category": 12,
+    "value": 7047,
+    "fr": "Click & Collect",
+    "en": "Click & Collect",
+    "es": "Click & Collect"
+  },
+  "clickcollectdouce": {
+    "category": 12,
+    "value": 517,
+    "fr": "Click & Collect",
+    "en": "Click & Collect",
+    "es": "Click & Collect"
+  },
+  "livraisondomicile": {
+    "category": 12,
+    "value": 576,
+    "fr": "livraison[s] à domicile",
+    "en": "home delivery[s]",
+    "es": "entrega[s] a domicilio"
+  },
+  "microondes": {
+    "category": 6,
+    "value": 98300,
+    "fr": "Micro-ondes",
+    "en": "Microwave[s]",
+    "es": "Microondas"
   }
 }

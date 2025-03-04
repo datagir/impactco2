@@ -291,4 +291,27 @@ export const electromenager = [
     end: 65.4233854443126,
     total: 239,
   },
+  {
+    id: 26989,
+    slug: 'microondes',
+    category: 6,
+    ecv: [
+      {
+        id: 1,
+        value: 58.6,
+      },
+      {
+        id: 2,
+        value: 3.43,
+      },
+      {
+        id: 3,
+        value: 6.91,
+      },
+      {
+        id: 4,
+        value: 29.4,
+      },
+    ],
+  },
 ]
